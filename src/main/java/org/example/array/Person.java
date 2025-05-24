@@ -61,8 +61,8 @@ public class Person {
                 System.out.println(b[i][j]);
             }
         }
-
-
+        int x=5;
+        System.out.println(x++ + ++x); //
 
 
 
