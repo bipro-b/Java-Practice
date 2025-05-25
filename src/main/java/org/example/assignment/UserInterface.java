@@ -68,10 +68,12 @@ public class UserInterface {
             System.out.print("Enter Project ID: ");
             int id = Integer.parseInt(scannerInput.nextLine());
 
-            // Re-prompt until unique
-            while (findProjectById(id) != null) {
-                System.out.println("Duplicate Project ID! Please enter a unique ID:");
-                id = Integer.parseInt(scannerInput.nextLine());
+            if (findProjectById(id) != null) {
+                System.out.println("Duplicate ID entered!");
+                do {
+                    id = (int) (Math.random() * 9000) + 1000;
+                } while (findProjectById(id) != null);
+                System.out.println("A new unique Project ID has been assigned: " + id);
             }
 
             System.out.print("Enter Project Name: ");
@@ -83,9 +85,10 @@ public class UserInterface {
             projects[index] = new Project(id, name, type);
             System.out.println("Project created with ID: " + id);
         } catch (NumberFormatException e) {
-            System.out.println("Invalid ID. Must be a number.");
+            System.out.println("Invalid input. Project ID must be a number.");
         }
     }
+
 
 
     private int findEmptySlot() {
@@ -125,15 +128,14 @@ public class UserInterface {
             }
 
             System.out.print("Enter Task ID: ");
-            int taskId;
-            while (true) {
-                System.out.print("Enter Task ID: ");
-                taskId = Integer.parseInt(scannerInput.nextLine());
-                if (project.getTask(taskId) != null) {
-                    System.out.println(" Duplicate Task ID! Please enter a unique Task ID.");
-                } else {
-                    break;
-                }
+            int taskId = Integer.parseInt(scannerInput.nextLine());
+
+            if (project.getTask(taskId) != null) {
+                System.out.println("Duplicate Task ID detected.");
+                do {
+                    taskId = (int)(Math.random() * 9000) + 1000;
+                } while (project.getTask(taskId) != null);
+                System.out.println("Assigned new unique Task ID: " + taskId);
             }
 
             System.out.print("Enter Description: ");
@@ -147,14 +149,17 @@ public class UserInterface {
 
             Task task = new Task(taskId, desc, false, type, duration);
             if (project.addTask(task)) {
-                System.out.println("Task added.");
+                System.out.println("Task added with ID: " + taskId);
             } else {
-                System.out.println("Task limit reached.");
+                System.out.println("Task limit reached for this project.");
             }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter numeric values for IDs and duration.");
         } catch (Exception e) {
-            System.out.println("Invalid input.");
+            System.out.println("An error occurred. Please try again.");
         }
     }
+
 
     private void removeTask() {
         try {
