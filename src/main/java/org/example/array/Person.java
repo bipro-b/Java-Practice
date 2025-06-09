@@ -3,8 +3,9 @@ package org.example.array;
 public class Person {
     public static void main(String[] args) {
 
-
-//       // int [] personAge = new int[];
+// array
+        // int[] a = new int[5];
+//
 
         int[] personAge = {23, 45, 67, 89, 12, 34, 56, 78, 90, 11,
                 22, 33, 44, 55, 66, 77, 88, 99, 100, 101,
@@ -44,10 +45,11 @@ public class Person {
 
         int [] a = new int[] {1,2,3,4,5,6,7,8,9,10};
 
+        // 2d arraay [m][n]  m is row and n is column
         int [][] b = new int[3][3];
-        b[0][0] = 1;
-        b[0][1] = 2;
-        b[0][2] = 3;
+        b[0][0] = 1;    // 1 2 3
+        b[0][1] = 2;    // 4 5 6
+        b[0][2] = 3;    // 7 8 9
         b[1][0] = 4;
         b[1][1] = 5;
         b[1][2] = 6;
@@ -62,7 +64,7 @@ public class Person {
             }
         }
         int x=5;
-        System.out.println(x++ + ++x); //
+        System.out.println(x++ + ++x);
 
 
 

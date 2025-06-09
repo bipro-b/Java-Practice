@@ -1,5 +1,6 @@
 package org.example.oop;
 
+//
 public class Vehicle {
     private int doors;
     private int wheels;
