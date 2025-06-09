@@ -10,9 +10,9 @@ public class Main {
         Car car  = new Car();
         car.setModel("Toyota");
         car.setEngine("V6");
-        car.setDoors(4);
-        car.setWheels(4);
-        car.setColor("Blue");
+//        car.setDoors(4);
+//        car.setWheels(4);
+//        car.setColor("Blue");
 
         System.out.println("Vehicle: " + vehicle.getColor() + ", Doors: " + vehicle.getDoors() + ", Wheels: " + vehicle.getWheels());
 
